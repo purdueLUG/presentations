@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>An Emacs Presentation</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+	<div class="reveal">
+	<div class="slides">
+	<section id="title" data-markdown data-background-image="img/ece477-code-emacs.png">
+		## A Presentation on EMACS
+		##### *Hastily Prepared and Questionably Spel-Cheked*
+	</section>
+
+	<section id="vim-talk">
+	  <h2>Isn't this the VIM talk?</h2>
+	  <ul>
+	    <li class="fragment"> It was supposed to be</li>
+	    <li class="fragment"> I'm sorry if that's what you're here for</li>
+	    <li class="fragment"> Blame the other Thomas</li>
+	    <li class="fragment"> I mean really, who would rather take an exam than sit around
+	      talking about text editors?</li>
+	    <li class="fragment"> You can leave if you want</li>
+	    <li class="fragment"> But unless you already know you hate EMACS, stick around</li>
+	  </ul>
+	</section>
+
+	<section id="cApiTalS">
+	  <h2>What is EMACS?</h2>
+	  <p class="fragment">Editor MACroS</p>
+	  <p class="fragment">YeaH I caN taLK likE THaT ToO!</p>
+	  <p class="fragment">No.</p>
+	</section>
+
+	<section id="really">
+	  <h2>Okay, but really?</h2>
+	  <ul>
+	  <li>Most commonly GNU Emacs</li>
+          <li>Originally just macros for an editor called TECO</li>
+          <li>Typically implemented using a Lisp</li>
+	  </ul>
+	  <small>Aside: you can learn more about things like TECO if you read
+	    <i>"Hackers: Heroes of the Computer Revolution"</i> by Steven Levy</small>
+	</section>
+
+	<section id="scary">
+	  <h2>I heard something about Lisp</h2>
+	  <p>Something like...</p>
+	  <ul>
+	    <li class="fragment">"sexp"?</li>
+	    <li class="fragment">Being better than everyone else?</li>
+	    <li class="fragment">The formation of an unholy, psyche-shattering contract with Paren,
+	      the great and terrible god of parentheses?</li>
+	  </ul>
+	  <p class="fragment">Well, you aren't wrong, but...</p>
+	</section>
+
+	<section id="know-lisp" data-markdown>
+	  ## Back to Reality
+	  * You only need to know Lisp to write the config file
+	  * Lisp isn't that hard to use, especially when editing with Emacs
+	  * The entire editor *is* written mostly in Lisp, but you usually aren't aware of it
+	  * **Many of you probably already know some Emacs commands, you just don't know it**
+	</section>
+
+	<section id="crazy">
+	  <section id="crazy-1">
+	  <h2>You fool.  You absolute buffoon.  You don't know me!</h2>
+	  <ul>
+	    <li class="fragment">We'll see about that</li>
+	    <li class="fragment">Raise your hand if you use bash, zsh, or fish</li>
+	    <li class="fragment">Keep them raised unless you've explicitly configured keyboard shortcuts in your shell</li>
+	    <li class="fragment">Keep them raised if you know any commands to move around on the command line; ex:</li>
+	  </ul>
+	  </section>
+	  <section id="crazy-2">
+	    <ul>
+	      <li>Beginning/end of line</li>
+	      <li>Forward/backward by character/word</li>
+	      <li>Delete a character without the delete key</li>
+	      <li>Suspend execution of a program</li>
+	      <li>Reverse search through history</li>
+	    </ul>
+	  </section>
+	</section>
+
+	<section id="hope" data-markdown>
+	  ## I hope there are hands still raised
+	  * You all know some Emacs movement commands already!
+	  * Why is it this way?
+	  * GNU readline
+	   * Wraps many text interfaces in GNU and other software
+	   * Ex: Emacs, nano, bash, Python, etc.
+	</section>
+
+	<section id="keys">
+	  <section id="keys-1" data-markdown>
+	  ## All your modifiers are mine
+	  The absolute basic key combos you'll need:
+	  * C-f and C-b: go forward and backward one character
+	  * M-f and M-b: go forward and backward one word
+	  * C-n and C-p: go down and up one line
+	  * C-a and C-e: go to the beginning and end of a line
+	  * M-&gt; and M-&lt;: go to the beginning and end of the buffer
+	  * C-x u: undo
+	  * C-SPC: begin/end selecting text
+	  </section>
+	  <section id="keys-2" data-markdown>
+	  * C-w and M-w: cut and copy selection
+	  * C-y: paste text
+	  * C-k: kill a line
+	  * C-h: open help
+	  * C-s and C-r: forward and reverse search
+	  * C-x C-f: open a file
+	  * C-x C-s: save current buffer
+	  * C-x s: save all buffers  
+	  * C-x C-c: quit
+	  </section>
+	</section>
+
+	<section id="why-else">
+	  <h2>I'm bored now, stop talking about keys</h2>
+	  <ul>
+	  <li class="fragment">Okay</li>
+	  <li class="fragment">Just remember to try these in your shell sometime</li>
+	  <li class="fragment">I swear if I see one more person clear a shell with "clear" instead
+	    of C-l, I'm going to insert my head into a wall.</li>
+	  <li class="fragment">No more arrow keys either, just use C-n and C-l</li>
+	  <li class="fragment"><b>Serious: the whole idea is to keep your hands on the keyboard as much as
+	    possible.</b></li>
+	  </ul>
+	</section>
+
+	<section id="what-else">
+	  <section id="what-else-1">
+	  <h2>What else can we do?</h2>
+	  <ul>
+	    <li class="fragment">Useful things:</li>
+	    <ul>
+	      <li class="fragment">org-mode for note-taking and document-writing</li>
+	      <li class="fragment">magit for using git from within Emacs</li>
+	      <li class="fragment">The GUD for debugging programs within Emacs</li>
+	      <li class="fragment">eshell, where you can execute both shell commands <i>and</i> Lisp!</li>
+	      <li class="fragment">The list goes on (read/send email, etc.)</li>
+	    </ul>
+	  </section>
+	  <section id="what-else-2">
+	    <ul>
+	    <li class="fragment">Silly things:</li>
+	    <ul>
+	      <li class="fragment">Play tetris</li>
+	      <li class="fragment">Tell the automated psychotherapist about your problems</li>
+	      <li class="fragment">Etc...</li>
+	    </ul>
+	    </ul>
+	  </section>
+	</section>
+
+	<section id="even-more" data-markdown>
+	  ## Even more
+	  * You can use VIM keybindings in Emacs with things like Spacemacs and Evil mode
+	  * You can write your own packages
+	  * You can edit your config file to tune Emacs to your liking
+  	  * I can show you what Emacs looks like for me if you want
+	  * Generally, anything you can program, Emacs can do!
+	</section>
+
+	<section id="end" data-markdown>
+	  ## The End
+	  * Thank you all for staying
+	  * If you want to know more, you can try talking to me
+	  * I would not consider myself an expert by any means though
+	  * Unless you profess extreme zealotry for a different editor, I'd recommend
+	    trying out Emacs for a few weeks sometime in the future
+	</section>
+	
+	</div>
+	</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
